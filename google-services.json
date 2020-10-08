@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "757183158125",
+    "firebase_url": "https://ipersonal-ff5ab.firebaseio.com",
+    "project_id": "ipersonal-ff5ab",
+    "storage_bucket": "ipersonal-ff5ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757183158125:android:fec105e2b158fe0cafec64",
+        "android_client_info": {
+          "package_name": "com.example.ipersonal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757183158125-lhka0864s5nf0pdonmldh9hh2q72gqle.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlX2ahJVBvpd8nithupvFcRX7OeKpIpWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757183158125-lhka0864s5nf0pdonmldh9hh2q72gqle.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
