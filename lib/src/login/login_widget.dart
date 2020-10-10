@@ -5,12 +5,13 @@ import 'package:ipersonal/src/home/home_widget.dart';
 class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Color.fromRGBO(29, 176, 176, 1),
+        color: corPadrao,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -89,7 +90,7 @@ class LoginWidget extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(29, 176, 176, 1),
+                        color: corPadrao,
                         borderRadius: BorderRadius.all(Radius.circular((20))),
                       ),
                       child: FlatButton(

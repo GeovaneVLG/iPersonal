@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class LojaWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
@@ -20,8 +21,7 @@ class LojaWidget extends StatelessWidget {
                     ),
                     Text(
                       "Coins",
-                      style: TextStyle(
-                          color: Color.fromRGBO(29, 176, 176, 1), fontSize: 16),
+                      style: TextStyle(color: corPadrao, fontSize: 16),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -86,14 +86,14 @@ class LojaWidget extends StatelessWidget {
                   counterStyle: TextStyle(fontSize: 0),
                   prefixIcon: Icon(
                     Icons.confirmation_number,
-                    color: Color.fromRGBO(29, 176, 176, 1),
+                    color: corPadrao,
                   ),
                   labelText: "Insira o código",
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: IconButton(
                       icon: Icon(
                         Icons.send,
-                        color: Color.fromRGBO(29, 176, 176, 1),
+                        color: corPadrao,
                       ),
                       onPressed: () {}),
                 ),

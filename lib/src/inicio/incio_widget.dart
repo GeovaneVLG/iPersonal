@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class InicioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
+
     return Scaffold(
       appBar: PreferredSize(
           child: Container(
@@ -62,7 +64,7 @@ class InicioWidget extends StatelessWidget {
                 Expanded(
                   child: Container(
                     child: FlatButton(
-                      color: Color.fromRGBO(29, 176, 176, 1),
+                      color: corPadrao,
                       onPressed: () {},
                       child: Text(
                         "Personais",
@@ -77,7 +79,7 @@ class InicioWidget extends StatelessWidget {
                 Expanded(
                   child: Container(
                     child: FlatButton(
-                      color: Color.fromRGBO(29, 176, 176, 1),
+                      color: corPadrao,
                       onPressed: () {},
                       child: Text(
                         "Nutricionistas",
@@ -105,7 +107,7 @@ class InicioWidget extends StatelessWidget {
                         border: InputBorder.none,
                         prefixIcon: Icon(
                           Icons.search,
-                          color: Color.fromRGBO(29, 176, 176, 1),
+                          color: corPadrao,
                         ),
                         labelText: "Pesquisar",
                         floatingLabelBehavior: FloatingLabelBehavior.never,

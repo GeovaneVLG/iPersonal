@@ -4,10 +4,11 @@ import 'package:ipersonal/src/home/home_widget.dart';
 class CadastroWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
-        color: Color.fromRGBO(29, 176, 176, 1),
+        color: corPadrao,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
@@ -140,7 +141,7 @@ class CadastroWidget extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(29, 176, 176, 1),
+                        color: corPadrao,
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
                       child: FlatButton(
