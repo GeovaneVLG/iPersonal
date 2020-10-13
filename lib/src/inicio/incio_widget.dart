@@ -124,8 +124,8 @@ class InicioWidget extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
                 child: GridView.count(
                   // Cria um grid com duas colunas
-                  crossAxisCount: 2,
-                  // Gera 100 Widgets que exibem o seu índice
+                  crossAxisCount: 1,
+                  // Gera 50 Widgets que exibem o seu índice
                   children: List.generate(50, (index) {
                     return Container(
                       margin: EdgeInsets.all(5),
