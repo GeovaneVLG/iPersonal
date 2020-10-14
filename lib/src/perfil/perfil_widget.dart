@@ -14,7 +14,9 @@ class PerfilWidget extends StatelessWidget {
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
-      body: Center(child: Text("PERFIL")),
+      body: Column(
+        children: <Widget>[Text("Teste!!"), Text("Teste2")],
+      ),
     );
   }
 }
