@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class InicioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
+    Color corPadrao = Color.fromRGBO(29, 176, 176toDiagnosticsNode(), 1);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -38,7 +38,7 @@ class InicioWidget extends StatelessWidget {
                         alignment: Alignment.centerRight,
                       ),
                       Text(
-                        "Coins",
+                        "Saldo",
                         style: TextStyle(color: Colors.black, fontSize: 13),
                         textAlign: TextAlign.center,
                       ),
@@ -48,22 +48,19 @@ class InicioWidget extends StatelessWidget {
               ],
             ),
           ),
-          preferredSize: new Size.fromHeight(50)),
-      backgroundColor: Colors.white,
+          preferredSize: Size.fromHeight(50)),
+      backgroundColor: Colors.grey[100],
       body: Container(
         padding: EdgeInsets.only(left: 20, right: 20),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: <Widget>[
-            Divider(
-              color: Colors.blueGrey,
-            ),
             Row(
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    child: FlatButton(
+                    child: RaisedButton(
                       color: corPadrao,
                       onPressed: () {},
                       child: Text(
@@ -78,7 +75,7 @@ class InicioWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Container(
-                    child: FlatButton(
+                    child: RaisedButton(
                       color: corPadrao,
                       onPressed: () {},
                       child: Text(
@@ -99,9 +96,11 @@ class InicioWidget extends StatelessWidget {
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
-                        borderRadius: new BorderRadius.circular(10.0),
-                        border: Border.all(color: Colors.black)),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10.0),
+                        border: Border.all(color: corPadrao)),
                     child: TextFormField(
+                      cursorColor: corPadrao,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -124,13 +123,24 @@ class InicioWidget extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
                 child: GridView.count(
                   // Cria um grid com duas colunas
-                  crossAxisCount: 1,
+                  crossAxisCount: 2,
                   // Gera 50 Widgets que exibem o seu índice
                   children: List.generate(50, (index) {
                     return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(6.0),
+                        border: Border.all(color: Colors.white),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey[300],
+                            offset: Offset(2.5, 2.5),
+                            blurRadius: 2.0,
+                          )
+                        ],
+                      ),
                       margin: EdgeInsets.all(5),
                       alignment: Alignment.center,
-                      color: Colors.grey[100],
                       child: ListTile(
                         title: Text(
                           'Prof ${index + 1}',
