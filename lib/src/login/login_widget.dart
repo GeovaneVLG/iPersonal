@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/src/cadastro/cadastro_widget.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 
 class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
+    CoresConfig cores = new CoresConfig();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: corPadrao,
+        color: cores.corPadrao,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -90,7 +91,7 @@ class LoginWidget extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: corPadrao,
+                        color: cores.corPadrao,
                         borderRadius: BorderRadius.all(Radius.circular((20))),
                       ),
                       child: FlatButton(

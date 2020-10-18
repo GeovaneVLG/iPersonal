@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 
 class LojaWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
+    CoresConfig cores = new CoresConfig();
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
@@ -20,8 +21,8 @@ class LojaWidget extends StatelessWidget {
                       alignment: Alignment.center,
                     ),
                     Text(
-                      "Coins",
-                      style: TextStyle(color: corPadrao, fontSize: 16),
+                      "Saldo",
+                      style: TextStyle(color: cores.corPadrao, fontSize: 16),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -30,9 +31,9 @@ class LojaWidget extends StatelessWidget {
             ],
           ),
         ),
-        preferredSize: new Size.fromHeight(50),
+        preferredSize: Size.fromHeight(50),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: cores.corFundoPadrao,
       body: Container(
         padding: EdgeInsets.only(left: 20, right: 20),
         width: MediaQuery.of(context).size.width,
@@ -50,9 +51,20 @@ class LojaWidget extends StatelessWidget {
                   crossAxisCount: 2,
                   children: List.generate(50, (index) {
                     return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(6.0),
+                        border: Border.all(color: Colors.white),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey[300],
+                            offset: Offset(2.5, 2.5),
+                            blurRadius: 2.0,
+                          )
+                        ],
+                      ),
                       margin: EdgeInsets.all(5),
                       alignment: Alignment.center,
-                      color: Colors.grey[100],
                       child: ListTile(
                         title: Text(
                           'Produto ${index + 1}',
@@ -75,9 +87,11 @@ class LojaWidget extends StatelessWidget {
               height: 40,
               width: MediaQuery.of(context).size.width * 0.6,
               decoration: BoxDecoration(
-                  borderRadius: new BorderRadius.circular(10.0),
-                  border: Border.all(color: Colors.black)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: cores.corPadrao)),
               child: TextFormField(
+                cursorColor: cores.corPadrao,
                 keyboardType: TextInputType.text,
                 maxLength: 6,
                 decoration: InputDecoration(
@@ -86,14 +100,14 @@ class LojaWidget extends StatelessWidget {
                   counterStyle: TextStyle(fontSize: 0),
                   prefixIcon: Icon(
                     Icons.confirmation_number,
-                    color: corPadrao,
+                    color: cores.corPadrao,
                   ),
                   labelText: "Insira o código",
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: IconButton(
                       icon: Icon(
                         Icons.send,
-                        color: corPadrao,
+                        color: cores.corPadrao,
                       ),
                       onPressed: () {}),
                 ),

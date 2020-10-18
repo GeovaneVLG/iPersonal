@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 
 class CadastroWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color corPadrao = Color.fromRGBO(29, 176, 176, 1);
+    CoresConfig cores = new CoresConfig();
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
-        color: corPadrao,
+        color: cores.corPadrao,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
@@ -141,7 +142,7 @@ class CadastroWidget extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: corPadrao,
+                        color: cores.corPadrao,
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
                       child: FlatButton(

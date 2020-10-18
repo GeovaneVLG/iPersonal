@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 import 'package:ipersonal/src/login/login_widget.dart';
 
 class SplashWidget extends StatefulWidget {
@@ -18,11 +19,13 @@ class _SplashWidgetState extends State<SplashWidget> {
 
   @override
   Widget build(BuildContext context) {
+    CoresConfig cores = new CoresConfig();
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Color.fromRGBO(29, 176, 176, 1),
+        color: cores.corPadrao,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

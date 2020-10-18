@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 
 class InicioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color corPadrao = Color.fromRGBO(29, 176, 176toDiagnosticsNode(), 1);
+    CoresConfig cores = new CoresConfig();
 
     return Scaffold(
       appBar: PreferredSize(
@@ -49,7 +50,7 @@ class InicioWidget extends StatelessWidget {
             ),
           ),
           preferredSize: Size.fromHeight(50)),
-      backgroundColor: Colors.grey[100],
+      backgroundColor: cores.corFundoPadrao,
       body: Container(
         padding: EdgeInsets.only(left: 20, right: 20),
         width: MediaQuery.of(context).size.width,
@@ -61,7 +62,7 @@ class InicioWidget extends StatelessWidget {
                 Expanded(
                   child: Container(
                     child: RaisedButton(
-                      color: corPadrao,
+                      color: cores.corPadrao,
                       onPressed: () {},
                       child: Text(
                         "Personais",
@@ -76,7 +77,7 @@ class InicioWidget extends StatelessWidget {
                 Expanded(
                   child: Container(
                     child: RaisedButton(
-                      color: corPadrao,
+                      color: cores.corPadrao,
                       onPressed: () {},
                       child: Text(
                         "Nutricionistas",
@@ -98,15 +99,15 @@ class InicioWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
-                        border: Border.all(color: corPadrao)),
+                        border: Border.all(color: cores.corPadrao)),
                     child: TextFormField(
-                      cursorColor: corPadrao,
+                      cursorColor: cores.corPadrao,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
                           Icons.search,
-                          color: corPadrao,
+                          color: cores.corPadrao,
                         ),
                         labelText: "Pesquisar",
                         floatingLabelBehavior: FloatingLabelBehavior.never,

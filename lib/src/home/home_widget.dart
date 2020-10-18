@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/src/agenda/agenda_widget.dart';
+import 'package:ipersonal/src/cores/cores_config.dart';
 import 'package:ipersonal/src/inicio/incio_widget.dart';
 import 'package:ipersonal/src/loja/loja_widget.dart';
 import 'package:ipersonal/src/perfil/perfil_widget.dart';
@@ -10,6 +11,8 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+  CoresConfig cores = new CoresConfig();
+
   List<Widget> _telas;
   Widget _telaInicio;
   Widget _telaLoja;
@@ -67,7 +70,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromRGBO(29, 176, 176, 1),
+        selectedItemColor: cores.corPadrao,
         onTap: (index) => onClickMenu(index),
       ),
     );
