@@ -11,6 +11,7 @@ class _AgendaWidgetState extends State<AgendaWidget> {
   Color corBFtexto;
   Color corBEfundo;
   Color corBEtexto;
+  Color apenasparateste = Colors.white;
   CoresConfig cores = new CoresConfig();
 
   void initState() {
@@ -29,6 +30,7 @@ class _AgendaWidgetState extends State<AgendaWidget> {
         corBFtexto = cores.corPadrao;
         corBEfundo = Colors.white;
         corBEtexto = Colors.grey[400];
+        apenasparateste = Colors.white;
       });
     }
 
@@ -38,6 +40,7 @@ class _AgendaWidgetState extends State<AgendaWidget> {
         corBEtexto = cores.corPadrao;
         corBFfundo = Colors.white;
         corBFtexto = Colors.grey[400];
+        apenasparateste = cores.corPadrao;
       });
     }
 
@@ -104,6 +107,36 @@ class _AgendaWidgetState extends State<AgendaWidget> {
                       ),
                     ),
                   ],
+                ),
+                Expanded(
+                  child: Container(
+                    color: cores.corFundoPadrao,
+                    child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      itemCount: 6,
+                      itemBuilder: (context, i) {
+                        return Container(
+                          width: constraints.maxWidth * 0.6,
+                          height: constraints.maxHeight * 0.2,
+                          decoration: BoxDecoration(
+                            color: apenasparateste,
+                            borderRadius: BorderRadius.circular(6.0),
+                            border: Border.all(color: Colors.white),
+                            boxShadow: [
+                              BoxShadow(
+                                spreadRadius: 3,
+                                color: Colors.grey[300],
+                                offset: Offset(2.5, 2.5),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          margin: EdgeInsets.all(20),
+                          alignment: Alignment.center,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),
