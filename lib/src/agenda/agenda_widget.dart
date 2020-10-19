@@ -131,7 +131,8 @@ class _AgendaWidgetState extends State<AgendaWidget> {
                               )
                             ],
                           ),
-                          margin: EdgeInsets.all(20),
+                          margin: EdgeInsets.only(
+                              top: 15, bottom: 15, left: 20, right: 20),
                           alignment: Alignment.center,
                         );
                       },
