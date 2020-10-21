@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/src/agenda/agenda_widget.dart';
-import 'package:ipersonal/src/cores/cores_config.dart';
+import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/src/inicio/incio_widget.dart';
 import 'package:ipersonal/src/loja/loja_widget.dart';
 import 'package:ipersonal/src/perfil/perfil_widget.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/cores/cores_config.dart';
 
 class PerfilWidget extends StatefulWidget {
   @override
@@ -6,51 +7,67 @@ class PerfilWidget extends StatefulWidget {
 }
 
 class _PerfilWidgetState extends State<PerfilWidget> {
-  var imgUrl;
-  @override
-  void initState() {
-    imgUrl = "assets/images/logo_facebook.png";
-    super.initState();
-  }
-
-  void clicou() {
-    setState(() {
-      if (imgUrl == "assets/images/logo_facebook.png") {
-        imgUrl = "assets/images/logo_ipersonal.jpeg";
-      } else if (imgUrl == "assets/images/logo_ipersonal.jpeg") {
-        imgUrl = "assets/images/logo_google.png";
-      } else if (imgUrl == "assets/images/logo_google.png") {
-        imgUrl = "assets/images/visa.jpg";
-      } else {
-        imgUrl = "assets/images/logo_facebook.png";
-      }
-    });
-  }
+  CoresConfig cores = new CoresConfig();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Perfil",
-          style: TextStyle(color: Colors.black),
-        ),
-        centerTitle: true,
-      ),
       backgroundColor: Colors.white,
-      body: Center(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            GestureDetector(
-                onTap: clicou,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Image.asset(imgUrl),
-                  width: MediaQuery.of(context).size.width * 0.6,
-                ))
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.3,
+              decoration: BoxDecoration(
+                color: cores.corPadrao,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.elliptical(300, 30),
+                  bottomLeft: Radius.elliptical(300, 30),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: 1,
+                    color: Colors.grey[500],
+                    blurRadius: 2.0,
+                  )
+                ],
+              ),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      ClipRRect(
+                        child: Container(
+                            width: constraints.maxWidth * 0.30,
+                            height: constraints.maxHeight * 0.45,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(200),
+                                color: cores.corPadrao),
+                            child: Image.asset(
+                              "assets/images/aaa.jpg",
+                              fit: BoxFit.fill,
+                            )),
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: constraints.maxHeight * 0.1),
+                        child: Text(
+                          "Geovane Vinicius Lacerda Gomes",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

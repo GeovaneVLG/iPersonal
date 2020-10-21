@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/src/cadastro/cadastro_widget.dart';
-import 'package:ipersonal/src/cores/cores_config.dart';
+import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 
 class LoginWidget extends StatelessWidget {
