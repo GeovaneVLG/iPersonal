@@ -44,7 +44,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                     children: <Widget>[
                       ClipRRect(
                         child: Container(
-                            width: constraints.maxWidth * 0.30,
+                            width: constraints.maxHeight * 0.5,
                             height: constraints.maxHeight * 0.5,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(200),
@@ -70,116 +70,122 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               ),
             ),
             Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
-                    title: Text(
-                      "Dados pessoais",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Visualize suas informações"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.dehaze,
-                          size: 20,
+              child: LayoutBuilder(
+                builder: (context, constraints2) {
+                  return ListView(
+                    padding:
+                        EdgeInsets.only(top: constraints2.maxHeight * 0.0001),
+                    children: <Widget>[
+                      ListTile(
+                        title: Text(
+                          "Dados pessoais",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "Atuação profissional",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Mantenha atualizado seu curriculo"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.work,
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Visualize suas informações"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.dehaze,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "Atuação profissional",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "Formação",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Mantenha atualizado seu curriculo"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.account_balance,
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Mantenha atualizado seu curriculo"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.work,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "Formação",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "Alterar senha",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Crie uma senha nova"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.lock,
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Mantenha atualizado seu curriculo"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.account_balance,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "Alterar senha",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "Notificações",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Ative e Desative as notificações"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.speaker_notes,
-                          color: Colors.green,
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Crie uma senha nova"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.lock,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "Notificações",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "FAQ",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    subtitle: Text("Tire suas duvidas"),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.question_answer,
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Ative e Desative as notificações"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.speaker_notes,
+                              color: Colors.green,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "FAQ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                  Divider(),
-                  ListTile(
-                    title: Text(
-                      "Sair",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    dense: true,
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.power_settings_new,
-                          color: Colors.red[300],
-                          size: 20,
+                        dense: true,
+                        subtitle: Text("Tire suas duvidas"),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.question_answer,
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text(
+                          "Sair",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {}),
-                  ),
-                ],
+                        dense: true,
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.power_settings_new,
+                              color: Colors.red[300],
+                              size: 20,
+                            ),
+                            onPressed: () {}),
+                      ),
+                    ],
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
       ),

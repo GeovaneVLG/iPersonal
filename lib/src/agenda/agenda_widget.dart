@@ -49,9 +49,12 @@ class _AgendaWidgetState extends State<AgendaWidget> {
           child: Container(
               color: Colors.white,
               alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.02,
+                  right: MediaQuery.of(context).size.width * 0.02),
               child: Text("AGENDAMENTOS")),
-          preferredSize: Size.fromHeight(50)),
+          preferredSize:
+              Size.fromHeight(MediaQuery.of(context).size.height * 0.05)),
       backgroundColor: Colors.white,
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -64,7 +67,8 @@ class _AgendaWidgetState extends State<AgendaWidget> {
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding:
+                            EdgeInsets.only(top: constraints.maxHeight * 0.02),
                         child: InkWell(
                           child: Container(
                             decoration: BoxDecoration(
@@ -85,7 +89,8 @@ class _AgendaWidgetState extends State<AgendaWidget> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding:
+                            EdgeInsets.only(top: constraints.maxHeight * 0.02),
                         child: InkWell(
                           child: Container(
                             decoration: BoxDecoration(
@@ -132,7 +137,10 @@ class _AgendaWidgetState extends State<AgendaWidget> {
                             ],
                           ),
                           margin: EdgeInsets.only(
-                              top: 15, bottom: 15, left: 20, right: 20),
+                              top: constraints.maxHeight * 0.02,
+                              bottom: constraints.maxHeight * 0.02,
+                              left: constraints.maxWidth * 0.035,
+                              right: constraints.maxWidth * 0.035),
                           alignment: Alignment.center,
                         );
                       },
