@@ -23,7 +23,8 @@ environment:
 dependencies:
   responsive_flutter: ^0.0.4
   firebase_core: ^0.5.0
-  firebase_database: ^4.0.0
+  firebase_database: ^4.2.0
+  firebase_auth: ^0.18.2
   flutter:
     sdk: flutter
 
