@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/src/splash/splash_widget.dart';
 
+import 'src/pagamento/pagamento_widget.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashWidget(),
+      home: PagamentoWidget(),
     );
   }
 }
