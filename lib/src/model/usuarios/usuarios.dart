@@ -1,11 +1,12 @@
 abstract class Usuarios {
+  final String uid;
   String _nome;
   String _email;
   String _telefone;
   String _endereco;
   String _datanascimento;
 
-  Usuarios(this._nome, this._email, this._telefone, this._endereco,
+  Usuarios(this.uid, this._nome, this._email, this._telefone, this._endereco,
       this._datanascimento);
 
   void setNome(String nome) {
