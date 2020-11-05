@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/src/splash/splash_widget.dart';
 
 void main() {
