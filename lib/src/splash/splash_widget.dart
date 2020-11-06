@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/model/usuarios.dart';
+import 'package:ipersonal/src/cadastro/cadastro_widget.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/src/login/login_widget.dart';
 import 'package:provider/provider.dart';
