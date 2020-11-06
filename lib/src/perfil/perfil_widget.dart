@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
+import 'package:ipersonal/src/login/login_widget.dart';
 
 class PerfilWidget extends StatefulWidget {
   @override
@@ -183,11 +184,13 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                           ),
                           onPressed: () async {
                             dynamic result = await _autenticacao.signOut();
-                            if(result != null){
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeWidget()),
-                                  (Route<dynamic> route) => false);
+                            if (result != null) {
+                              setState(() {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginWidget()),
+                                    (Route<dynamic> route) => false);
+                              });
                             }
                           },
                         ),

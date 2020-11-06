@@ -18,21 +18,19 @@ class _SplashWidgetState extends State<SplashWidget> {
     final user = Provider.of<Usuarios>(context);
     CoresConfig cores = new CoresConfig();
 
-    Future.delayed(Duration(seconds: 3)).then((_) {
-      if (user == null) {
-        Future.delayed(Duration(seconds: 2)).then((_) {
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => LoginWidget()),
-              (Route<dynamic> route) => false);
-        });
-      } else {
-        Future.delayed(Duration(seconds: 2)).then((_) {
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => HomeWidget()),
-              (Route<dynamic> route) => false);
-        });
-      }
-    });
+    if (user == null) {
+      Future.delayed(Duration(seconds: 3)).then((_) {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => LoginWidget()),
+            (Route<dynamic> route) => false);
+      });
+    } else {
+      Future.delayed(Duration(seconds: 3)).then((_) {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => HomeWidget()),
+            (Route<dynamic> route) => false);
+      });
+    }
 
     return Scaffold(
       body: Container(
