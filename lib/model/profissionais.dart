@@ -7,9 +7,7 @@ class Profissionais extends Usuarios {
   String _formacao;
 
   //Contrutor da classe.
-  Profissionais(String uid, String nome, String email, String telefone,
-      String endereco, String datanascimento)
-      : super(uid, nome, email, telefone, endereco, datanascimento);
+  Profissionais(String uid);
 
   //Metodos SET e GET dos atributos PROFISSAO e FORMACAO.
   void setProfissao(String profissao) {
