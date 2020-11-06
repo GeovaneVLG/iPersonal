@@ -15,6 +15,17 @@ class AutenticacaoFire {
   }
 
   //Login com email e senha.
+  Future loginComEmailSenha(String email, String senha) async {
+    try {
+      UserCredential result = await _autenticacao.signInWithEmailAndPassword(
+          email: email, password: senha);
+      User user = result.user;
+      return _usuariosFireBase(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   //Cadastro com email e senha.
   Future cadastroComEmailSenha(String email, String senha) async {
