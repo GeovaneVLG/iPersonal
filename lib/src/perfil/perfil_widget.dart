@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
+import 'package:ipersonal/servicos/autenticacao_fire.dart';
 
 class PerfilWidget extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class PerfilWidget extends StatefulWidget {
 
 class _PerfilWidgetState extends State<PerfilWidget> {
   CoresConfig cores = new CoresConfig();
+  final AutenticacaoFire _autenticacao = AutenticacaoFire();
 
   @override
   Widget build(BuildContext context) {
@@ -173,12 +175,15 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         ),
                         dense: true,
                         trailing: IconButton(
-                            icon: Icon(
-                              Icons.power_settings_new,
-                              color: Colors.red[300],
-                              size: 20,
-                            ),
-                            onPressed: () {}),
+                          icon: Icon(
+                            Icons.power_settings_new,
+                            color: Colors.red[300],
+                            size: 20,
+                          ),
+                          onPressed: () async {
+                            await _autenticacao.signOut();
+                          },
+                        ),
                       ),
                     ],
                   );

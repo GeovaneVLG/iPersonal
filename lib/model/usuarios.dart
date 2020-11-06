@@ -1,10 +1,10 @@
 abstract class Usuarios {
   final String uid;
-  String _nome;
+  String _nome = "";
   String _email;
-  String _telefone;
-  String _endereco;
-  String _datanascimento;
+  String _telefone = "";
+  String _endereco = "";
+  String _datanascimento = "";
 
   Usuarios(this.uid, this._nome, this._email, this._telefone, this._endereco,
       this._datanascimento);

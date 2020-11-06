@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/cadastro/cadastro_widget.dart';
 import 'package:ipersonal/cores/cores_config.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
 
-class LoginWidget extends StatelessWidget {
+class LoginWidget extends StatefulWidget {
+  @override
+  _LoginWidgetState createState() => _LoginWidgetState();
+}
+
+class _LoginWidgetState extends State<LoginWidget> {
+  final AutenticacaoFire _autenticacao = AutenticacaoFire();
+
+  //Textos que serão digitados.
+  String email = "";
+  String senha = "";
+
   @override
   Widget build(BuildContext context) {
     CoresConfig cores = new CoresConfig();
@@ -48,6 +59,9 @@ class LoginWidget extends StatelessWidget {
                         Container(
                           width: constraints.maxWidth,
                           child: TextFormField(
+                            onChanged: (val) {
+                              setState(() => email = val);
+                            },
                             textInputAction: TextInputAction.next,
                             style: TextStyle(
                               fontSize: 13,
@@ -67,6 +81,9 @@ class LoginWidget extends StatelessWidget {
                         Container(
                           width: constraints.maxWidth,
                           child: TextFormField(
+                            onChanged: (val) {
+                              setState(() => senha = val);
+                            },
                             maxLength: 8,
                             style: TextStyle(
                               fontSize: 13,
@@ -108,11 +125,12 @@ class LoginWidget extends StatelessWidget {
                                 BorderRadius.all(Radius.circular((20))),
                           ),
                           child: FlatButton(
-                            onPressed: () {
-                              Navigator.of(context).pushAndRemoveUntil(
+                            onPressed: () async {
+                              
+                              /*  Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
                                       builder: (context) => HomeWidget()),
-                                  (Route<dynamic> route) => false);
+                                  (Route<dynamic> route) => false); */
                             },
                             child: Text(
                               "ENTRAR",

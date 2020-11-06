@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
+import 'package:ipersonal/model/usuarios.dart';
+import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/src/login/login_widget.dart';
+import 'package:provider/provider.dart';
 
 class SplashWidget extends StatefulWidget {
   @override
@@ -8,18 +11,26 @@ class SplashWidget extends StatefulWidget {
 }
 
 class _SplashWidgetState extends State<SplashWidget> {
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 2)).then((_) {
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => LoginWidget()),
-          (Route<dynamic> route) => false);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<Usuarios>(context);
     CoresConfig cores = new CoresConfig();
+
+    Future.delayed(Duration(seconds: 3)).then((_) {
+      if (user == null) {
+        Future.delayed(Duration(seconds: 2)).then((_) {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => LoginWidget()),
+              (Route<dynamic> route) => false);
+        });
+      } else {
+        Future.delayed(Duration(seconds: 2)).then((_) {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => HomeWidget()),
+              (Route<dynamic> route) => false);
+        });
+      }
+    });
 
     return Scaffold(
       body: Container(

@@ -1,4 +1,4 @@
-import 'package:ipersonal/src/model/usuarios/usuarios.dart';
+import 'package:ipersonal/model/usuarios.dart';
 
 class Clientes extends Usuarios {
   Clientes(String uid, String nome, String email, String telefone,

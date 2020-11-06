@@ -1,4 +1,4 @@
-import 'package:ipersonal/src/model/usuarios/usuarios.dart';
+import 'package:ipersonal/model/usuarios.dart';
 
 class Profissionais extends Usuarios {
   //Atributos da classe Profissional.
