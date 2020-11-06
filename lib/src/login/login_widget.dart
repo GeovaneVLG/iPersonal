@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/cadastro/cadastro_widget.dart';
+import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -139,12 +140,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   dynamic result = await _autenticacao.loginComEmailSenha(email, senha);
                                   if(result == null){
                                     setState(() => erro = 'Email ou Senha invalida');
-                                  }
-                                }
-                                /*  Navigator.of(context).pushAndRemoveUntil(
+                                  }else{
+                                    Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
                                       builder: (context) => HomeWidget()),
-                                  (Route<dynamic> route) => false); */
+                                  (Route<dynamic> route) => false);
+                                  }
+                               
+                              }
                               },
                               child: Text(
                                 "ENTRAR",
