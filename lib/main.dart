@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/splash/splash_widget.dart';
+import 'package:ipersonal/src/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'model/usuarios.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: SplashWidget(),
+        home: WrapperWidget(),
       ),
     );
   }

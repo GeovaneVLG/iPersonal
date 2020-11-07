@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
+import 'package:ipersonal/loadingAnimacao/loading_widget.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 
 class CadastroWidget extends StatefulWidget {
-  
   final Function trocarTela;
   CadastroWidget({this.trocarTela});
 
@@ -16,6 +16,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
   final AutenticacaoFire _autenticacao = AutenticacaoFire();
   final _formKey = GlobalKey<FormState>();
 
+  bool loading = false;
   bool verSenha = true;
 
   //Textos que serão digitados.
@@ -38,9 +39,11 @@ class _CadastroWidgetState extends State<CadastroWidget> {
             Expanded(
               child: Container(
                 alignment: Alignment.center,
-                child: Image.asset(
-                  "assets/images/logo_ipersonal.jpeg",
-                ),
+                child: loading
+                    ? LoadingWidget()
+                    : Image.asset(
+                        "assets/images/logo_ipersonal.jpeg",
+                      ),
               ),
             ),
             Expanded(
@@ -205,16 +208,14 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                             child: FlatButton(
                               onPressed: () async {
                                 if (_formKey.currentState.validate()) {
+                                  setState(() => loading = true);
                                   dynamic result = await _autenticacao
                                       .cadastroComEmailSenha(email, senha);
                                   if (result == null) {
-                                    setState(
-                                        () => erro = "Insira um email valido!");
-                                  } else {
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                            builder: (context) => HomeWidget()),
-                                        (Route<dynamic> route) => false);
+                                    setState(() {
+                                      erro = "Insira um email valido!";
+                                      loading = false;
+                                    });
                                   }
                                 }
                               },

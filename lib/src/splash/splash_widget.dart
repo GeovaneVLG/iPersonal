@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
-import 'package:ipersonal/model/usuarios.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
-import 'package:ipersonal/telas_autenticacao/autenticacao_direcao.dart';
-import 'package:provider/provider.dart';
 
 class SplashWidget extends StatefulWidget {
   @override
@@ -13,20 +9,7 @@ class SplashWidget extends StatefulWidget {
 class _SplashWidgetState extends State<SplashWidget> {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<Usuarios>(context);
     CoresConfig cores = new CoresConfig();
-
-    Future.delayed(Duration(seconds: 5)).then((_) {
-      if (user != null) {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => HomeWidget()),
-            (Route<dynamic> route) => false);
-      } else {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => AutenticacaoDirecao()),
-            (Route<dynamic> route) => false);
-      }
-    });
 
     return Scaffold(
       body: Container(

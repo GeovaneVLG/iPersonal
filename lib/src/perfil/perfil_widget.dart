@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
+import 'package:ipersonal/src/wrapper.dart';
 import 'package:ipersonal/telas_autenticacao/autenticacao_direcao.dart';
 
 class PerfilWidget extends StatefulWidget {
@@ -184,13 +185,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                           onPressed: () async {
                             dynamic result = await _autenticacao.signOut();
                             if (result != null) {
-                              setState(() {
-                                Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            AutenticacaoDirecao()),
-                                    (Route<dynamic> route) => false);
-                              });
+                              return WrapperWidget();
                             }
                           },
                         ),

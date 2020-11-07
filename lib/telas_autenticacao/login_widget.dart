@@ -165,11 +165,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       erro = 'Email ou Senha invalida';
                                       loading = false;
                                     });
-                                  } else {
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                            builder: (context) => HomeWidget()),
-                                        (Route<dynamic> route) => false);
                                   }
                                 }
                               },
