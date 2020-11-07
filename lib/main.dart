@@ -14,21 +14,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-          return StreamProvider<Usuarios>.value(
-            value: AutenticacaoFire().user,
-            child: MaterialApp(
-              title: 'Flutter Demo',
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-                visualDensity: VisualDensity.adaptivePlatformDensity,
-              ),
-              home: SplashWidget(),
-            ),
-          );
-        
-
-      
-    
+    return StreamProvider<Usuarios>.value(
+      value: AutenticacaoFire().user,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: SplashWidget(),
+      ),
+    );
   }
 }

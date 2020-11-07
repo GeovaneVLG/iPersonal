@@ -4,6 +4,10 @@ import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/home/home_widget.dart';
 
 class CadastroWidget extends StatefulWidget {
+  
+  final Function trocarTela;
+  CadastroWidget({this.trocarTela});
+
   @override
   _CadastroWidgetState createState() => _CadastroWidgetState();
 }
@@ -11,6 +15,8 @@ class CadastroWidget extends StatefulWidget {
 class _CadastroWidgetState extends State<CadastroWidget> {
   final AutenticacaoFire _autenticacao = AutenticacaoFire();
   final _formKey = GlobalKey<FormState>();
+
+  bool verSenha = true;
 
   //Textos que serão digitados.
   String nome = "";
@@ -84,6 +90,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               onChanged: (val) {
                                 setState(() => email = val);
                               },
+                              onTap: (() => erro = ""),
                               textInputAction: TextInputAction.next,
                               style: TextStyle(
                                 fontSize: 13,
@@ -103,11 +110,11 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               onChanged: (val) {
                                 setState(() => senha = val);
                               },
-                              maxLength: 8,
+                              maxLength: 15,
                               style: TextStyle(
                                 fontSize: 13,
                               ),
-                              obscureText: true,
+                              obscureText: verSenha,
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                   counterText: "",
@@ -115,10 +122,14 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                   icon: Icon(Icons.vpn_key),
                                   suffixIcon: IconButton(
                                       icon: Icon(
-                                        Icons.visibility,
+                                        verSenha
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
                                         color: Colors.grey,
                                       ),
-                                      onPressed: () {})),
+                                      onPressed: () {
+                                        verSenha = !verSenha;
+                                      })),
                             ),
                           ),
                           Padding(padding: EdgeInsets.only(top: 10)),
@@ -172,7 +183,17 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               ],
                             ),
                           ),
-                          Padding(padding: EdgeInsets.only(top: 40)),
+                          Container(
+                            height: 40,
+                            child: Text(
+                              erro,
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 14,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.8,
                             height: 40,
@@ -218,7 +239,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.pop(context);
+                                    widget.trocarTela();
                                   },
                                   child: Text(
                                     " Entrar",
@@ -226,15 +247,6 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                     style: TextStyle(
                                         color: Colors.blue, fontSize: 13),
                                   ),
-                                ),
-                                Padding(padding: EdgeInsets.only(top: 20)),
-                                Text(
-                                  erro,
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14,
-                                  ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
