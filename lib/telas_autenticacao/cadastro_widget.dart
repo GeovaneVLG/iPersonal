@@ -15,9 +15,18 @@ class _CadastroWidgetState extends State<CadastroWidget> {
   final AutenticacaoFire _autenticacao = AutenticacaoFire();
   final _formKey = GlobalKey<FormState>();
 
+  //Variavel para animação do loading.
   bool loading = false;
+
+  //Variavel para visualizar senha digitada.
   bool verSenha = true;
-  Color corSenha = Colors.grey[200];
+
+  //Variaveis para verificar nivel da senha.
+  bool nivelSenha0 = true;
+  bool nivelSenha1 = false;
+  bool nivelSenha2 = false;
+  bool nivelSenha3 = false;
+  bool nivelSenha4 = false;
 
   //Textos que serão digitados.
   String nome = "";
@@ -28,24 +37,79 @@ class _CadastroWidgetState extends State<CadastroWidget> {
   Widget build(BuildContext context) {
     CoresConfig cores = new CoresConfig();
 
+    //Função que altera o nivel da senha.
     void verNivelSenha() {
       if (senha == '') {
-        setState(() => corSenha = Colors.grey[200]);
+        setState(() {
+          nivelSenha0 = true;
+          nivelSenha1 = false;
+          nivelSenha2 = false;
+          nivelSenha3 = false;
+          nivelSenha4 = false;
+        });
       } else if (senha.length <= 7 && senha.length > 1) {
-        setState(() => corSenha = Colors.redAccent);
+        //Contém menos de 8 caracteres.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = false;
+          nivelSenha3 = false;
+          nivelSenha4 = false;
+        });
       } else if (RegExp(r'[a-zA-Z]').hasMatch(senha) &&
           !RegExp(r'[0-9]').hasMatch(senha)) {
-        setState(() => corSenha = Colors.redAccent);
+        //Contém apenas letras.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = false;
+          nivelSenha3 = false;
+          nivelSenha4 = false;
+        });
       } else if (!RegExp(r'[a-zA-Z]').hasMatch(senha) &&
           RegExp(r'[0-9]').hasMatch(senha)) {
-        setState(() => corSenha = Colors.redAccent);
+        //Contém apenas números.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = false;
+          nivelSenha3 = false;
+          nivelSenha4 = false;
+        });
+      } else if ((RegExp(r'(?=.*[a-z])(?=.*[0-9]).{8,}$').hasMatch(senha) &&
+              !RegExp(r'[A-Z]').hasMatch(senha)) ||
+          (RegExp(r'(?=.*[A-Z])(?=.*[0-9]).{8,}$').hasMatch(senha) &&
+              !RegExp(r'[a-z]').hasMatch(senha))) {
+        //Deve conter mais de 8 caracteres, letras e números.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = true;
+          nivelSenha3 = false;
+          nivelSenha4 = false;
+        });
       } else if (RegExp(r'(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')
-          .hasMatch(senha)) {
-        setState(() => corSenha = Colors.amberAccent);
-      } else if (senha.length >= 8 &&
-          RegExp(r'[a-z]').hasMatch(senha) &&
-          RegExp(r'[0-9]').hasMatch(senha)) {
-        setState(() => corSenha = Colors.amberAccent);
+              .hasMatch(senha) &&
+          !RegExp(r'[@#$!%*?&.,]').hasMatch(senha)) {
+        //Deve conter mais de 8 caracteres, letras e números. Além de letras maiúsculas.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = true;
+          nivelSenha3 = true;
+          nivelSenha4 = false;
+        });
+      } else if ((RegExp(r'(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')
+              .hasMatch(senha) &&
+          RegExp(r'[@#$!%*?&.,]').hasMatch(senha))) {
+        //Deve conter mais de 8 caracteres, letras , números , letras maiúsculas e caracter especial.
+        setState(() {
+          nivelSenha0 = false;
+          nivelSenha1 = true;
+          nivelSenha2 = true;
+          nivelSenha3 = true;
+          nivelSenha4 = true;
+        });
       }
     }
 
@@ -130,8 +194,17 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                           Padding(padding: EdgeInsets.only(top: 20)),
                           SizedBox(
                             child: TextFormField(
-                              validator: (val) =>
-                                  val.length < 8 ? 'Minimo 8 digitos' : null,
+                              validator: (val) {
+                                if (nivelSenha0) {
+                                  return 'Insira uma senha!';
+                                } else if (nivelSenha3 || nivelSenha4) {
+                                  return null;
+                                }
+                                return 'Senha muito fraca!';
+                              }
+                              /* (val) =>
+                                  val.length < 8 ? 'Minimo 8 digitos' : null */
+                              ,
                               onChanged: (val) {
                                 setState(() {
                                   senha = val;
@@ -167,57 +240,41 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               children: <Widget>[
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: corSenha,
+                                      color: !nivelSenha0 && nivelSenha1
+                                          ? Colors.redAccent
+                                          : Colors.grey[200],
                                       borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(5),
                                           topLeft: Radius.circular(5))),
-                                  width: 10,
+                                  width: 20,
                                   height: 15,
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
-                                  width: 10,
+                                  width: 20,
                                   height: 15,
-                                  color: corSenha,
+                                  color: !nivelSenha0 && nivelSenha2
+                                      ? Colors.amberAccent
+                                      : Colors.grey[200],
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
-                                  width: 10,
+                                  width: 20,
                                   height: 15,
-                                  color: corSenha,
-                                  margin: EdgeInsets.only(right: 2),
-                                ),
-                                Container(
-                                  width: 10,
-                                  height: 15,
-                                  color: corSenha,
-                                  margin: EdgeInsets.only(right: 2),
-                                ),
-                                Container(
-                                  width: 10,
-                                  height: 15,
-                                  color: corSenha,
-                                  margin: EdgeInsets.only(right: 2),
-                                ),
-                                Container(
-                                  width: 10,
-                                  height: 15,
-                                  color: corSenha,
-                                  margin: EdgeInsets.only(right: 2),
-                                ),
-                                Container(
-                                  width: 10,
-                                  height: 15,
-                                  color: corSenha,
+                                  color: !nivelSenha0 && nivelSenha3
+                                      ? Colors.greenAccent[400]
+                                      : Colors.grey[200],
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: corSenha,
+                                      color: !nivelSenha0 && nivelSenha4
+                                          ? Colors.green
+                                          : Colors.grey[200],
                                       borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(5),
                                           topRight: Radius.circular(5))),
-                                  width: 10,
+                                  width: 20,
                                   height: 15,
                                 ),
                               ],
@@ -246,8 +303,9 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               onPressed: () async {
                                 if (_formKey.currentState.validate()) {
                                   setState(() => loading = true);
-                                  dynamic result = await _autenticacao
-                                      .cadastroComEmailSenha(email, senha);
+                                  dynamic result =
+                                      await _autenticacao.cadastroComEmailSenha(
+                                          email, senha, nome);
                                   if (result == null) {
                                     setState(() {
                                       erro = "Insira um email valido!";

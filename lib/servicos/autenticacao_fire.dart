@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:ipersonal/model/usuarios.dart';
 
 class AutenticacaoFire {
   final FirebaseAuth _autenticacao = FirebaseAuth.instance;
+  final fireBD = FirebaseDatabase.instance.reference();
 
   //Instanciando usuario.
   Usuarios _usuariosFireBase(User user) {
@@ -28,11 +30,13 @@ class AutenticacaoFire {
   }
 
   //Cadastro com email e senha.
-  Future cadastroComEmailSenha(String email, String senha) async {
+  Future cadastroComEmailSenha(String email, String senha, String nome) async {
     try {
       UserCredential result = await _autenticacao
           .createUserWithEmailAndPassword(email: email, password: senha);
       User user = result.user;
+      fireBD.child("usuarios").child(user.uid).child("email").set(user.email);
+      fireBD.child("usuarios").child(user.uid).child("nome").set(nome);
       return _usuariosFireBase(user);
     } catch (e) {
       print(e.toString());
