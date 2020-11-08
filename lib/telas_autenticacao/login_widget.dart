@@ -107,7 +107,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 fontSize: 13,
                               ),
                               obscureText: verSenha,
-                              keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                   counterText: "",
                                   labelText: "Senha",

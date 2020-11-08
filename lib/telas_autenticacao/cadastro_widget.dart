@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/loadingAnimacao/loading_widget.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
 
 class CadastroWidget extends StatefulWidget {
   final Function trocarTela;
@@ -18,6 +17,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
 
   bool loading = false;
   bool verSenha = true;
+  Color corSenha = Colors.grey[200];
 
   //Textos que serão digitados.
   String nome = "";
@@ -27,6 +27,28 @@ class _CadastroWidgetState extends State<CadastroWidget> {
   @override
   Widget build(BuildContext context) {
     CoresConfig cores = new CoresConfig();
+
+    void verNivelSenha() {
+      if (senha == '') {
+        setState(() => corSenha = Colors.grey[200]);
+      } else if (senha.length <= 7 && senha.length > 1) {
+        setState(() => corSenha = Colors.redAccent);
+      } else if (RegExp(r'[a-zA-Z]').hasMatch(senha) &&
+          !RegExp(r'[0-9]').hasMatch(senha)) {
+        setState(() => corSenha = Colors.redAccent);
+      } else if (!RegExp(r'[a-zA-Z]').hasMatch(senha) &&
+          RegExp(r'[0-9]').hasMatch(senha)) {
+        setState(() => corSenha = Colors.redAccent);
+      } else if (RegExp(r'(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')
+          .hasMatch(senha)) {
+        setState(() => corSenha = Colors.amberAccent);
+      } else if (senha.length >= 8 &&
+          RegExp(r'[a-z]').hasMatch(senha) &&
+          RegExp(r'[0-9]').hasMatch(senha)) {
+        setState(() => corSenha = Colors.amberAccent);
+      }
+    }
+
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
@@ -111,14 +133,17 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               validator: (val) =>
                                   val.length < 8 ? 'Minimo 8 digitos' : null,
                               onChanged: (val) {
-                                setState(() => senha = val);
+                                setState(() {
+                                  senha = val;
+                                  verNivelSenha();
+                                });
                               },
                               maxLength: 15,
                               style: TextStyle(
                                 fontSize: 13,
                               ),
                               obscureText: verSenha,
-                              keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                   counterText: "",
                                   labelText: "Senha",
@@ -142,7 +167,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                               children: <Widget>[
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.grey,
+                                      color: corSenha,
                                       borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(5),
                                           topLeft: Radius.circular(5))),
@@ -153,30 +178,42 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                                 Container(
                                   width: 10,
                                   height: 15,
-                                  color: Colors.grey,
+                                  color: corSenha,
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
                                   width: 10,
                                   height: 15,
-                                  color: Colors.grey,
+                                  color: corSenha,
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
                                   width: 10,
                                   height: 15,
-                                  color: Colors.grey,
+                                  color: corSenha,
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
                                   width: 10,
                                   height: 15,
-                                  color: Colors.grey,
+                                  color: corSenha,
+                                  margin: EdgeInsets.only(right: 2),
+                                ),
+                                Container(
+                                  width: 10,
+                                  height: 15,
+                                  color: corSenha,
+                                  margin: EdgeInsets.only(right: 2),
+                                ),
+                                Container(
+                                  width: 10,
+                                  height: 15,
+                                  color: corSenha,
                                   margin: EdgeInsets.only(right: 2),
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.grey,
+                                      color: corSenha,
                                       borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(5),
                                           topRight: Radius.circular(5))),
