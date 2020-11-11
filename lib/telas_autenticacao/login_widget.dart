@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/loadingAnimacao/loading_widget.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 
 class LoginWidget extends StatefulWidget {

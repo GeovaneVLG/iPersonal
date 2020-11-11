@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/wrapper.dart';
-import 'package:ipersonal/telas_autenticacao/autenticacao_direcao.dart';
 
 class PerfilWidget extends StatefulWidget {
   @override
@@ -12,7 +11,6 @@ class PerfilWidget extends StatefulWidget {
 class _PerfilWidgetState extends State<PerfilWidget> {
   CoresConfig cores = new CoresConfig();
   final AutenticacaoFire _autenticacao = AutenticacaoFire();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +51,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                 borderRadius: BorderRadius.circular(200),
                                 color: cores.corPadrao),
                             child: Image.asset(
-                              "assets/images/aaa.jpg",
+                              "assets/images/imgperfil.jpg",
                               fit: BoxFit.fill,
                             )),
                         borderRadius: BorderRadius.circular(200),
@@ -62,7 +60,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         padding:
                             EdgeInsets.only(top: constraints.maxHeight * 0.1),
                         child: Text(
-                          "Geovane Vinicius Lacerda Gomes",
+                          "Exemplo",
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),

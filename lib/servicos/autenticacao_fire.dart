@@ -22,6 +22,7 @@ class AutenticacaoFire {
       UserCredential result = await _autenticacao.signInWithEmailAndPassword(
           email: email, password: senha);
       User user = result.user;
+
       return _usuariosFireBase(user);
     } catch (e) {
       print(e.toString());
