@@ -34,16 +34,26 @@ class CarteiraWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Column(children: <Widget>[
-                      Text('Seu saldo total é de...',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          )),
-                      Text('e.g.: R\$ 546,98',
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                          )),
+                      Row(children: <Widget>[
+                        Text('Seu saldo total é de...',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ))
+                      ]),
+                      Row(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Text('e.g.: R\$ 546,98',
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          )
+                        ],
+                      )
                     ])
                   ],
                 ),
@@ -52,9 +62,9 @@ class CarteiraWidget extends StatelessWidget {
           ///Adicionar cartão 01
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 6,
+            height: MediaQuery.of(context).size.height / 12,
             decoration: BoxDecoration(
-              color: Color(0xFF10FF03),
+              color: Color(0xFFFFFFFF),
               border: Border.all(
                 color: Color(0xFF000000),
               ),
@@ -64,16 +74,16 @@ class CarteiraWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   IconButton(
-                    iconSize: 15,
+                    iconSize: 20,
                     icon: Icon(Icons.add_circle_outline_outlined),
                     onPressed: () {},
                   ),
                   IconButton(
-                      iconSize: 15,
+                      iconSize: 20,
                       icon: Icon(Icons.credit_card_rounded),
                       onPressed: null),
                   Text('Adicionar cartão!',
-                      style: TextStyle(color: Colors.white, fontSize: 15)),
+                      style: TextStyle(color: Colors.black, fontSize: 20)),
                 ],
               ),
             ]),
@@ -82,9 +92,9 @@ class CarteiraWidget extends StatelessWidget {
           ///Adicionar cartão 02
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 6,
+            height: MediaQuery.of(context).size.height / 12,
             decoration: BoxDecoration(
-              color: Color(0xFF10FF03),
+              color: Color(0xFFFFFFFF),
               border: Border.all(
                 color: Color(0xFF000000),
               ),
@@ -94,16 +104,16 @@ class CarteiraWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   IconButton(
-                    iconSize: 15,
+                    iconSize: 20,
                     icon: Icon(Icons.add_circle_outline_outlined),
                     onPressed: () {},
                   ),
                   IconButton(
-                      iconSize: 15,
+                      iconSize: 20,
                       icon: Icon(Icons.credit_card_rounded),
                       onPressed: null),
                   Text('Adicionar cartão!',
-                      style: TextStyle(color: Colors.white, fontSize: 15)),
+                      style: TextStyle(color: Colors.black, fontSize: 20)),
                 ],
               ),
             ]),
@@ -112,9 +122,9 @@ class CarteiraWidget extends StatelessWidget {
           ///Adicionar cartão 03
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 6,
+            height: MediaQuery.of(context).size.height / 12,
             decoration: BoxDecoration(
-              color: Color(0xFF10FF03),
+              color: Color(0xFFFFFFFF),
               border: Border.all(
                 color: Color(0xFF000000),
               ),
@@ -124,16 +134,16 @@ class CarteiraWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   IconButton(
-                    iconSize: 15,
+                    iconSize: 20,
                     icon: Icon(Icons.add_circle_outline_outlined),
                     onPressed: () {},
                   ),
                   IconButton(
-                      iconSize: 15,
+                      iconSize: 20,
                       icon: Icon(Icons.credit_card_rounded),
                       onPressed: null),
                   Text('Adicionar cartão!',
-                      style: TextStyle(color: Colors.white, fontSize: 15)),
+                      style: TextStyle(color: Colors.black, fontSize: 20)),
                 ],
               ),
             ]),
