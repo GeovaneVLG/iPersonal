@@ -32,7 +32,9 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                 Icons.arrow_back_ios,
                 color: corPadrao,
               ),
-              onPressed: null),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
         backgroundColor: Colors.white,
         body: Column(

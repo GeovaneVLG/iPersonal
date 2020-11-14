@@ -54,19 +54,19 @@ class _HomeWidgetState extends State<HomeWidget> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Inicio'),
+            label: 'Inicio',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.local_grocery_store),
-            title: Text('Loja'),
+            label: 'Loja',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
-            title: Text('Agenda'),
+            label: 'Agenda',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.perm_identity),
-            title: Text('Perfil'),
+            label: 'Perfil',
           ),
         ],
         currentIndex: _selectedIndex,

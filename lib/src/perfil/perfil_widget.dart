@@ -51,8 +51,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                 borderRadius: BorderRadius.circular(200),
                                 color: cores.corPadrao),
                             child: Image.asset(
-                              "assets/images/imgperfil.jpg",
-                              fit: BoxFit.fill,
+                              "assets/images/aaa.jpg",
+                              fit: BoxFit.fitWidth,
                             )),
                         borderRadius: BorderRadius.circular(200),
                       ),
@@ -60,7 +60,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         padding:
                             EdgeInsets.only(top: constraints.maxHeight * 0.1),
                         child: Text(
-                          "Exemplo",
+                          "Geovane Vinicius",
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
