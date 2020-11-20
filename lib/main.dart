@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
-import 'package:ipersonal/src/carteira_widget.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
 import 'package:ipersonal/src/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'model/usuarios.dart';
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider<Usuarios>.value(
       value: AutenticacaoFire().user,
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'iPersonal',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,

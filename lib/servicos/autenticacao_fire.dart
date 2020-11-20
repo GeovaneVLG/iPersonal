@@ -8,7 +8,14 @@ class AutenticacaoFire {
 
   //Instanciando usuario.
   Usuarios _usuariosFireBase(User user) {
-    return user != null ? Usuarios(uid: user.uid) : null;
+    if (user != null) {
+      Usuarios usuario = new Usuarios(uid: user.uid);
+      usuario.setEmail(user.email);
+      usuario.setNome(user.displayName);
+      return usuario;
+    } else {
+      return null;
+    }
   }
 
   //Autenticacao alterada.
@@ -38,6 +45,7 @@ class AutenticacaoFire {
       User user = result.user;
       fireBD.child("usuarios").child(user.uid).child("email").set(user.email);
       fireBD.child("usuarios").child(user.uid).child("nome").set(nome);
+      user.updateProfile(displayName: nome);
       return _usuariosFireBase(user);
     } catch (e) {
       print(e.toString());

@@ -5,6 +5,7 @@ class Usuarios {
   String _telefone = "";
   String _endereco = "";
   String _datanascimento = "";
+  String _foto = "";
 
   Usuarios({this.uid});
 
@@ -46,5 +47,13 @@ class Usuarios {
 
   String getDatanascimento() {
     return this._datanascimento;
+  }
+
+  void setFoto(String foto) {
+    this._foto = foto;
+  }
+
+  String getFoto() {
+    return this._foto;
   }
 }

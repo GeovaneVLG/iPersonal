@@ -155,6 +155,7 @@ class _CadastroWidgetState extends State<CadastroWidget> {
                           Padding(padding: EdgeInsets.only(top: 20)),
                           SizedBox(
                             child: TextFormField(
+                              textCapitalization: TextCapitalization.words,
                               validator: (val) =>
                                   val.isEmpty ? "Insira seu nome" : null,
                               onChanged: (val) {
