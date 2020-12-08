@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:ipersonal/servicos/autenticacao_fire.dart';
+import 'package:ipersonal/services/autenticacao_fire.dart';
 import 'package:ipersonal/view/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'model/usuarios.dart';

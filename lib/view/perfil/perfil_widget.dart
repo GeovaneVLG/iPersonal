@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
 import 'package:ipersonal/model/usuarios.dart';
-import 'package:ipersonal/servicos/autenticacao_fire.dart';
+import 'package:ipersonal/services/autenticacao_fire.dart';
 import 'package:ipersonal/view/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'dados_pessoais_widget.dart';
@@ -56,9 +56,10 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               borderRadius: BorderRadius.circular(200),
                               color: cores.corPadrao),
                           child: Image.asset(
-                            user.getFoto().isEmpty
+                            'assets/images/imgperfil.jpg',
+                            /* user.getFoto().isEmpty
                                 ? "assets/images/imgperfil.jpg"
-                                : user.getFoto(),
+                                : user.getFoto(), */
                             fit: BoxFit.fitWidth,
                           ),
                         ),
