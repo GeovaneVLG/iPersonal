@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ipersonal/telas_autenticacao/cadastro_widget.dart';
-import 'package:ipersonal/telas_autenticacao/login_widget.dart';
+import 'package:ipersonal/view/telas_autenticacao/cadastro_widget.dart';
+import 'package:ipersonal/view/telas_autenticacao/login_widget.dart';
 
 class AutenticacaoDirecao extends StatefulWidget {
   @override

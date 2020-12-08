@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/model/usuarios.dart';
-import 'package:ipersonal/src/home/home_widget.dart';
-import 'package:ipersonal/telas_autenticacao/autenticacao_direcao.dart';
+import 'package:ipersonal/view/home/home_widget.dart';
+import 'package:ipersonal/view/telas_autenticacao/autenticacao_direcao.dart';
 import 'package:provider/provider.dart';
 
 class WrapperWidget extends StatelessWidget {

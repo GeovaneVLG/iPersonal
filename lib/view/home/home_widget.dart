@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ipersonal/src/agenda/agenda_widget.dart';
 import 'package:ipersonal/cores/cores_config.dart';
-import 'package:ipersonal/src/inicio/incio_widget.dart';
-import 'package:ipersonal/src/loja/loja_widget.dart';
-import 'package:ipersonal/src/perfil/perfil_widget.dart';
+import 'package:ipersonal/view/agenda/agenda_widget.dart';
+import 'package:ipersonal/view/inicio/incio_widget.dart';
+import 'package:ipersonal/view/loja/loja_widget.dart';
+import 'package:ipersonal/view/perfil/perfil_widget.dart';
 
 class HomeWidget extends StatefulWidget {
   @override
@@ -14,6 +14,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   CoresConfig cores = new CoresConfig();
 
   List<Widget> _telas;
+  
   Widget _telaInicio;
   Widget _telaLoja;
   Widget _telaAgenda;
