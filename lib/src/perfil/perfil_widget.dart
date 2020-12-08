@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ipersonal/cores/cores_config.dart';
-import 'package:ipersonal/loadingAnimacao/loading_widget.dart';
 import 'package:ipersonal/model/usuarios.dart';
 import 'package:ipersonal/servicos/autenticacao_fire.dart';
 import 'package:ipersonal/src/wrapper.dart';
